@@ -1,6 +1,6 @@
 // git remote add origin https://github.com/roundtopdog/web215fp.git
 // git push -u origin master
-
+// movie functions
 function getUpcomingMoves(someContent){
 	if(someContent == '#mediaContent'){
 		var animal = '&q=duck';
@@ -15,8 +15,7 @@ function getUpcomingMoves(someContent){
 	moviesURL += '&page_limit=10'
 	moviesURL += '&_prettyprint=true&callback=?';
 	$.getJSON(moviesURL, displayResults);
-	addContent = someContent;
-	alert(moviesURL);	
+	addContent = someContent;	
 };// end getUpcomingMovies
 
 function displayResults(serverResults){
@@ -36,6 +35,31 @@ function displayResults(serverResults){
  	})
 }//end displayResults
 
+// navbar highlights
+function youAreHere(navColor){
+	var pathname = $(location).attr('pathname');
+	var curPage = pathname.substring(pathname.lastIndexOf('/')+1);
+	
+	if(navColor == '#navbar a' ){
+		newNavColor = 'class', 'pageHighlight';
+	} els if ( navColor == "#navbar" ){
+		newNavColorl = 'class', 'currentLink';
+	}
+	$('a').each(function(){
+		if(curPage == $(this).attr('href')){
+			$(this).attr(newNavColor);
+		} else if(curPage == ''){
+			$('a:first').attr(newNavColor);
+		} // end else if
+	}); // end anony fcn
+}
+
+// default link behavior
+function removeDefaultBehavior(evt){
+	evt.preventDefault();
+	$(this).attr('target', '_blank');
+	})
+}
 
 
 

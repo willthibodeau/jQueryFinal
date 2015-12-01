@@ -1,5 +1,7 @@
 $('document').ready(function(){
 	 getUpcomingMoves('#mediaContent');
-	 resultsNext();
-	 resultsPrevious();
+	 youAreHere('#navbar');
+	$( "#faqs" ).accordion({ header: "h3", collapsible:true, active: false });
+	removeDefaultBehavior('#content a');
+
 });
