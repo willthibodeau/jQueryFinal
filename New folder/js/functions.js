@@ -2,21 +2,13 @@
 // git push -u origin master
 
 function getUpcomingMoves(someContent){
-	if(someContent == '#mediaContent'){
-		var animal = '&q=duck';
-	} else {
-		var animal = '&q=fish';
-	};
-
  	var api = 'mv63eupbf36bpmmw4d8mpkn5';
-	var moviesURL = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json';
+	var moviesURL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json';
 	moviesURL += '?apikey=' + api;
-	moviesURL += animal;
-	moviesURL += '&page_limit=10'
 	moviesURL += '&_prettyprint=true&callback=?';
 	$.getJSON(moviesURL, displayResults);
 	addContent = someContent;
-	alert(moviesURL);	
+	
 };// end getUpcomingMovies
 
 function displayResults(serverResults){
@@ -30,7 +22,7 @@ function displayResults(serverResults){
  	var num = i++;
  		var title = '<h1> # ' + num + ': ' + property.title + '</h1>';
  		var img = '<img src="' + property.posters.thumbnail + '" />';
- 		var synopsis = '<p>' + property.posters.original + '</p>';
+ 		var synopsis = '<p>' + property.synopsis + '</p>';
  		var movieDetails = '<li class="hideMe">' + title + img + synopsis + '</li>';
  		$('#results').append(movieDetails);
  	})
