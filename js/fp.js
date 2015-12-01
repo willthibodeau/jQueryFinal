@@ -1,5 +1,5 @@
 $('document').ready(function(){
-	 getUpcomingMoves();
+	 getUpcomingMoves('#movieContent');
 	 resultsNext();
 	 resultsPrevious();
 });
