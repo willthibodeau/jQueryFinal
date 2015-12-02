@@ -59,11 +59,12 @@ function linkChange(evt){
 }// end home link changes
 
 // changes to resources page add acordion
-function addAccordion(noTabs){
-	$(noTabs).accordion({ collapsible:true, active:false });
+function addAccordion(fishfaqID){
+	$( fishfaqID ).accordion({ collapsible: true, heightStyle: "content", active: false });
+	alert(fishfaqID);
 }
 
-// $( "#faqs" ).accordion({ header: "h3", collapsible:true, active: false });
+// { header: "h3", collapsible:true, active: false }
 	
 
 

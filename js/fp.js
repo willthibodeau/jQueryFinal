@@ -1,7 +1,7 @@
 $('document').ready(function(){
-	 getUpcomingMoves('#mediaContent');
-	 youAreHere('#navbar a','pageHighlight');
-	 linkChange();
-	addAccordion('#faqs');
+	getUpcomingMoves('#mediaContent');
+	youAreHere('#navbar a','pageHighlight');
+	 // linkChange();
+	// addAccordion('#faq');
 
 });
