@@ -1,6 +1,7 @@
 // git remote add origin https://github.com/roundtopdog/web215fp.git
 // git push -u origin master
-// movie functions
+
+// start movie functions
 function getUpcomingMoves(someContent){
 	if(someContent == '#mediaContent'){
 		var animal = '&q=duck';
@@ -35,31 +36,36 @@ function displayResults(serverResults){
  	})
 }//end displayResults
 
-// navbar highlights
-function youAreHere(navColor){
+// end movie functions
+
+// start navbar highlights 
+function youAreHere(navbarID, navbarCSSClass){
 	var pathname = $(location).attr('pathname');
 	var curPage = pathname.substring(pathname.lastIndexOf('/')+1);
-	
-	if(navColor == '#navbar a' ){
-		newNavColor = 'class', 'pageHighlight';
-	} els if ( navColor == "#navbar" ){
-		newNavColorl = 'class', 'currentLink';
-	}
-	$('a').each(function(){
+
+	$(navbarID).each(function(){
 		if(curPage == $(this).attr('href')){
-			$(this).attr(newNavColor);
+			$(this).addClass(navbarCSSClass);
 		} else if(curPage == ''){
-			$('a:first').attr(newNavColor);
+			$('a:first').addClass(navbarCSSClass);
 		} // end else if
 	}); // end anony fcn
+}// end navbar highlights
+
+// home link changes
+function linkChange(evt){
+	evt.preventDefault();
+	$("#content a[href^='http://']").attr("target","_blank");
+}// end home link changes
+
+// changes to resources page add acordion
+function addAccordion(noTabs){
+	$(noTabs).accordion({ collapsible:true, active:false });
 }
 
-// default link behavior
-function removeDefaultBehavior(evt){
-	evt.preventDefault();
-	$(this).attr('target', '_blank');
-	})
-}
+// $( "#faqs" ).accordion({ header: "h3", collapsible:true, active: false });
+	
+
 
 
 
