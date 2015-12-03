@@ -42,7 +42,6 @@ function displayResults(serverResults){
 function youAreHere(navbarID, navbarCSSClass){
 	var pathname = $(location).attr('pathname');
 	var curPage = pathname.substring(pathname.lastIndexOf('/')+1);
-
 	$(navbarID).each(function(){
 		if(curPage == $(this).attr('href')){
 			$(this).addClass(navbarCSSClass);
@@ -53,18 +52,20 @@ function youAreHere(navbarID, navbarCSSClass){
 }// end navbar highlights
 
 // home link changes
-function linkChange(evt){
-	evt.preventDefault();
-	$("#content a[href^='http://']").attr("target","_blank");
-}// end home link changes
+  function linkChange(){
+  	$("#content a[href^='http://']").attr("target","_blank");
+  }// end home link changes
 
 // changes to resources page add acordion
 function addAccordion(fishfaqID){
 	$( fishfaqID ).accordion({ collapsible: true, heightStyle: "content", active: false });
-	alert(fishfaqID);
 }
 
-// { header: "h3", collapsible:true, active: false }
+// resources functiion 
+function resourceImprovements(resourceID){
+alert(resourceID);
+}// end resourceImprovements 
+
 	
 
 
