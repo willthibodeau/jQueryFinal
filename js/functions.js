@@ -63,27 +63,21 @@ function addAccordion(fishfaqID){
 
 // resources functiion 
 function resourceImprovements(resourceID){
-	//  if(resourceID == '#duck_stories' ){
-	//  	var rowEven = .duckRowEven;
-	// }
-	//else {
-	// 	var rowEven = .fishRowEven;
-	// }
-	// alert(rowEven);
-$(' ' + resourceID + ' tr:odd'  ).css('background-color', '#999');
-$(' ' + resourceID + ' tr:even' ).css('background-color', '#555');
-$(' ' + resourceID + ' tr').css('text-decoration', 'underline');
+	if(resourceID == '#fishfun'){
+		$('table tr:even').addClass('fishRowEven');
+		$('table tr:odd' ).addClass('fishRowOdd, ');
+	}
 
+	if(resourceID == '#duck_stories'){
+		$('table tr:even').addClass('duckRowEven');
+		$('table tr:odd').addClass('duckRowOdd');
+	}
 
+ $(' ' + resourceID + ' tr').css('text-decoration', 'underline');
+ $(' ' + resourceID + ' tr').css('cursor', 'pointer');
 
 }// end resourceImprovements 
 
-// 	.duckRowEven {
-// 	background-color: #1cc;
-// }
-// .duckRowOdd {
-// 	background-color: #cc1;
-// }
 
 
 
