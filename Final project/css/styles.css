@@ -121,3 +121,16 @@ label {
 /***************************************************************/
 /***************************************************************/
 /* table row colors */
+.duckRowEven {
+	background-color: #1cc;
+}
+.duckRowOdd {
+	background-color: #cc1;
+}
+.duckHighlighted {
+	background-color: #c11; 
+	cursor: pointer;
+}
+.duckDisabled {
+	background-color: #ccc; 
+}

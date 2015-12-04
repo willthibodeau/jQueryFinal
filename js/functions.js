@@ -1,4 +1,4 @@
-// git remote add origin https://github.com/roundtopdog/web215fp.git
+// git remote add origin 0pxttps://github.com/roundtopdog/web215fp.git
 // git push -u origin master
 
 // start movie functions
@@ -63,10 +63,29 @@ function addAccordion(fishfaqID){
 
 // resources functiion 
 function resourceImprovements(resourceID){
-alert(resourceID);
+	//  if(resourceID == '#duck_stories' ){
+	//  	var rowEven = .duckRowEven;
+	// }
+	//else {
+	// 	var rowEven = .fishRowEven;
+	// }
+	// alert(rowEven);
+$(' ' + resourceID + ' tr:odd'  ).css('background-color', '#999');
+$(' ' + resourceID + ' tr:even' ).css('background-color', '#555');
+$(' ' + resourceID + ' tr').css('text-decoration', 'underline');
+
+
+
 }// end resourceImprovements 
 
-	
+// 	.duckRowEven {
+// 	background-color: #1cc;
+// }
+// .duckRowOdd {
+// 	background-color: #cc1;
+// }
+
+
 
 
 

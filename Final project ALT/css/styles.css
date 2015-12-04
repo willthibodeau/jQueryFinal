@@ -130,3 +130,22 @@ input, textarea {
 .rowOver {
 	background: #ccc;
 }
+
+/**********
+/*added rules*/
+
+
+
+.fishRowEven {
+	background-color: #1cc;
+}
+.fishRowOdd {
+	background-color: #cc1;
+}
+.fishHighlighted {
+	background-color: #c11; 
+	cursor: pointer;
+}
+.fishDisabled {
+	background-color: #ccc; 
+}
