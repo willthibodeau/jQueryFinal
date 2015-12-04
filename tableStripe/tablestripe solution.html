@@ -10,7 +10,10 @@ $('document').ready(function() {
 	$('#theList tr:even').addClass('rowEven');
 	$('#theList tr:odd').addClass('rowOdd');
 	$('#theList tr').hover(highlight, highlight);
-	$('#theList tr').click(disableColor);
+	 $('#theList tr').click(function(evt){
+	 	evt.preventDefault();
+	 	$(this).href('row1'),attr('target', '_blank');
+	 });
 	$('#theList a').click(stopLink);
 	$('td:odd').prepend('$');
  });
@@ -31,6 +34,9 @@ function stopLink(evt){
 
 </script>
 <style type="text/css">
+.row1 {
+	color: white;  
+}
 
 a {
 	color: #000;

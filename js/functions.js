@@ -53,7 +53,7 @@ function youAreHere(navbarID, navbarCSSClass){
 
 // home link changes
   function linkChange(){
-  	$("#content a[href^='http://']").attr("target","_blank");
+  	$(" a[href^='http://']").attr("target","_blank");
   }// end home link changes
 
 // changes to resources page add acordion
@@ -75,6 +75,12 @@ function resourceImprovements(resourceID){
 
  $(' ' + resourceID + ' tr').css('text-decoration', 'underline');
  $(' ' + resourceID + ' tr').css('cursor', 'pointer');
+
+  $(' ' + resourceID + ' tr').click(function(){
+  		evt.preventDefault();
+  		
+  })
+ 
 
 }// end resourceImprovements 
 

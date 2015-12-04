@@ -3,7 +3,6 @@ $('document').ready(function(){
 	 youAreHere('#navbar a', 'currentLink');
 	 
 	 resourceImprovements('#fishfun');
-	
 
 	addAccordion('#fishfaq');
 	});
