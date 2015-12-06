@@ -1,16 +1,16 @@
 $('document').ready(function(){
-	getUpcomingMoves('#movieContent');
-	resourceImprovements('#fishfun');
+	 getUpcomingMoves('#movieContent');
+	 resourceImprovements('#fishfun');
 
-		displayFirstImage();
+		displayFirstImage('#survivors');
 // pre-load remaining images
-	preloadImages();
+	preloadImages('#survivors');
 // load the gallery
-	gallery();
+	gallery('#survivors');
 
-	youAreHere('#navbar a', 'currentLink');
+	 youAreHere('#navbar a', 'currentLink');
 	 
 	
 
-	//addAccordion('#fishfaq');
+	addAccordion('#fishfaq');
 	});

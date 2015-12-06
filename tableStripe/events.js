@@ -8,20 +8,20 @@
 	}); /*// end anon fcn*/
 	
 	
-	/*$('#coloredBox').hover(highlight, highlight);*/
+	$('#coloredBox').hover(highlight, highlight);*/
 	
 	
-	// var i = 0;
-	// $('#coloredBox a').click(function(evt){
-	// 	evt.preventDefault();
-	// 	$('#coloredBox').append(' ' + i++);
-	// }); // end anon fcn
+	 var i = 0;
+	 $('#coloredBox a').click(function(evt){
+	 	evt.preventDefault();
+	 	$('#coloredBox').append(' ' + i++);
+	 }); // end anon fcn
 	
 	
-	// $('#coloredBox a').one('click', function(evt){
-	// evt.preventDefault();
-	// $('#coloredBox').toggleClass('highlighted');
-	// }); // end anon fcn
+	$('#coloredBox a').one('click', function(evt){
+	 evt.preventDefault();
+	 $('#coloredBox a').attr('target', '_blank');
+	 }); // end anon fcn
 	
 	
  }); // end ready

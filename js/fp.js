@@ -1,15 +1,15 @@
 $('document').ready(function(){
-	getUpcomingMoves('#mediaContent');
-	youAreHere('#navbar a','pageHighlight');
+	 getUpcomingMoves('#mediaContent');
+	 youAreHere('#navbar a','pageHighlight');
 	
-	resourceImprovements('#duck_stories');
+	 resourceImprovements('#duck_stories');
 
-	displayFirstImage();
+	displayFirstImage('#galleryThumbs');
 // pre-load remaining images
-	preloadImages();
+	preloadImages('#galleryThumbs');
 // load the gallery
-	gallery();
+	gallery('#galleryThumbs');
 	
-	linkChange('#content a ');
-	addAccordion('#faqs');
+	 
+	 addAccordion('#faqs');linkChange('#content a ');
 });

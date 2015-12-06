@@ -42,15 +42,19 @@ function preloadImages(thumbs){
 function gallery(thumbs){
 	$(' ' + thumbs + ' a').click(function(evt){
 		evt.preventDefault();
-		var oldImage = $('#thumbs').next();
+		var oldImage = $(thumbs).next();
 		var imgPath = $(this).attr('href');
-		var imgTitle = $(this).attr('title');
-		alert(imgTitle);
 		var newImage = $('<img src="' + imgPath + '" id="galleryBig">');
 		newImage.hide();
-		$('#thumbs').after(newImage);
+		$(thumbs).after(newImage);
 		newImage.fadeIn();
 		oldImage.remove();
+		$('#caption').remove();
+		var altText = $(this).attr('title');
+		var newTag = $('<div id="caption"> ' + altText + ' </div>');
+		newTag.fadeIn();
+		$('#galleryBig').after(newTag);
+	
 	}); // end anon fcn
 }
 

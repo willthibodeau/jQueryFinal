@@ -80,13 +80,18 @@ function resourceImprovements(resourceID){
  	$(' ' + resourceID + ' tr td').css('text-decoration', 'underline');
  	$(' ' + resourceID + ' tr td').css('cursor', 'pointer');
 
-  	$(' ' + resourceID + ' tr td').click(function(){
-		//evt.preventDefault();
+  	$(' ' + resourceID + ' tr:not(:first)').click(function(evt){
+		evt.preventDefault();
 
-		var td = $('tr td').html();
-		alert(td);	
 
-  		$("a[href^='http://']" ).attr('target', '_blank');
+
+		 var td1 = $(this).children(':first').text();
+		 alert(td1);
+		// var td2 = $(this).attr('href');
+		// alert(td2);	
+
+		// text then assign the a
+  		//$(td).attr('href').attr('target','_blank');
 
 
   	})// end click function
@@ -94,31 +99,39 @@ function resourceImprovements(resourceID){
 
 // gallery functions
 
-function displayFirstImage(){
-	var firstPath = $('#thumbs a:first').attr('href');
+function displayFirstImage(thumbs){
+	var firstPath = $(' ' + thumbs + ' a:first').attr('href');
+	
 	var firstImage = '<img src="'+firstPath+'" id="galleryBig">';
-	$('#thumbs').after(firstImage);
+	
+	$(thumbs).after(firstImage);
 }
 
-function preloadImages(){
+function preloadImages(thumbs){
 	var arrGalleryImages = [];
-	var arrGalleryImageLinks = $('#thumbs a');
+	var arrGalleryImageLinks = $(' ' + thumbs + ' a');
 	for(i=0; i<arrGalleryImageLinks.length; i++){
 		arrGalleryImages[i] = new Image();
 		arrGalleryImages[i].src = arrGalleryImageLinks[i];
 	}
 }
 
-function gallery(){
-	$('#thumbs a').click(function(evt){
+function gallery(thumbs){
+	$(' ' + thumbs + ' a').click(function(evt){
 		evt.preventDefault();
-		var oldImage = $('#thumbs').next();
+		var oldImage = $(thumbs).next();
 		var imgPath = $(this).attr('href');
 		var newImage = $('<img src="' + imgPath + '" id="galleryBig">');
 		newImage.hide();
-		$('#thumbs').after(newImage);
+		$(thumbs).after(newImage);
 		newImage.fadeIn();
 		oldImage.remove();
+		$('#caption').remove();
+		var altText = $(this).attr('title');
+		var newTag = $('<div id="caption"> ' + altText + ' </div>');
+		newTag.fadeIn();
+		$('#galleryBig').after(newTag);
+	
 	}); // end anon fcn
 }
 
