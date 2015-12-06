@@ -1,6 +1,8 @@
 // git remote add origin 0pxttps://github.com/roundtopdog/web215fp.git
 // git push -u origin master
 
+//line 79 cant get preventDefault() to work
+
 // start movie functions
 function getUpcomingMoves(someContent){
 	if(someContent == '#mediaContent'){
@@ -52,9 +54,10 @@ function youAreHere(navbarID, navbarCSSClass){
 }// end navbar highlights
 
 // home link changes
-  function linkChange(){
-  	$(" a[href^='http://']").attr("target","_blank");
-  }// end home link changes
+  // function linkChange(something){
+  // 	$(something).attr("target","_blank");
+  // 	alert(something);
+  // }// end home link changes
 
 // changes to resources page add acordion
 function addAccordion(fishfaqID){
@@ -66,6 +69,7 @@ function resourceImprovements(resourceID){
 	if(resourceID == '#fishfun'){
 		$('table tr:even').addClass('fishRowEven');
 		$('table tr:odd' ).addClass('fishRowOdd, ');
+		
 	}
 
 	if(resourceID == '#duck_stories'){
@@ -73,20 +77,50 @@ function resourceImprovements(resourceID){
 		$('table tr:odd').addClass('duckRowOdd');
 	}
 
- $(' ' + resourceID + ' tr').css('text-decoration', 'underline');
- $(' ' + resourceID + ' tr').css('cursor', 'pointer');
+ 	$(' ' + resourceID + ' tr td').css('text-decoration', 'underline');
+ 	$(' ' + resourceID + ' tr td').css('cursor', 'pointer');
 
-  $(' ' + resourceID + ' tr').click(function(){
-  		evt.preventDefault();
-  		
-  })
- 
+  	$(' ' + resourceID + ' tr td').click(function(){
+		//evt.preventDefault();
 
+		var td = $('tr td').html();
+		alert(td);	
+
+  		$("a[href^='http://']" ).attr('target', '_blank');
+
+
+  	})// end click function
 }// end resourceImprovements 
 
+// gallery functions
 
+function displayFirstImage(){
+	var firstPath = $('#thumbs a:first').attr('href');
+	var firstImage = '<img src="'+firstPath+'" id="galleryBig">';
+	$('#thumbs').after(firstImage);
+}
 
+function preloadImages(){
+	var arrGalleryImages = [];
+	var arrGalleryImageLinks = $('#thumbs a');
+	for(i=0; i<arrGalleryImageLinks.length; i++){
+		arrGalleryImages[i] = new Image();
+		arrGalleryImages[i].src = arrGalleryImageLinks[i];
+	}
+}
 
+function gallery(){
+	$('#thumbs a').click(function(evt){
+		evt.preventDefault();
+		var oldImage = $('#thumbs').next();
+		var imgPath = $(this).attr('href');
+		var newImage = $('<img src="' + imgPath + '" id="galleryBig">');
+		newImage.hide();
+		$('#thumbs').after(newImage);
+		newImage.fadeIn();
+		oldImage.remove();
+	}); // end anon fcn
+}
 
 
 

@@ -1,8 +1,16 @@
 $('document').ready(function(){
-	 getUpcomingMoves('#movieContent');
-	 youAreHere('#navbar a', 'currentLink');
-	 
-	 resourceImprovements('#fishfun');
+	getUpcomingMoves('#movieContent');
+	resourceImprovements('#fishfun');
 
-	addAccordion('#fishfaq');
+		displayFirstImage();
+// pre-load remaining images
+	preloadImages();
+// load the gallery
+	gallery();
+
+	youAreHere('#navbar a', 'currentLink');
+	 
+	
+
+	//addAccordion('#fishfaq');
 	});

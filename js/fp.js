@@ -2,7 +2,14 @@ $('document').ready(function(){
 	getUpcomingMoves('#mediaContent');
 	youAreHere('#navbar a','pageHighlight');
 	
-	linkChange();
 	resourceImprovements('#duck_stories');
-addAccordion('#faqs');
+
+	displayFirstImage();
+// pre-load remaining images
+	preloadImages();
+// load the gallery
+	gallery();
+	
+	linkChange('#content a ');
+	addAccordion('#faqs');
 });
