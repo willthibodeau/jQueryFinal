@@ -1,15 +1,10 @@
 $('document').ready(function(){
-	 getUpcomingMoves('#mediaContent');
-	 youAreHere('#navbar a','pageHighlight');
-	
-	 resourceImprovements('#duck_stories');
-
+	getUpcomingMoves('#mediaContent');
+	youAreHere('#navbar a','pageHighlight');
+	resourceImprovements('#duck_stories');
+	resourceLink('#duck_stories');
 	displayFirstImage('#galleryThumbs');
-// pre-load remaining images
 	preloadImages('#galleryThumbs');
-// load the gallery
 	gallery('#galleryThumbs');
-	
-	 
-	 addAccordion('#faqs');linkChange('#content a ');
+	addAccordion('#faqs');linkChange('#content a ');
 });

@@ -54,10 +54,10 @@ function youAreHere(navbarID, navbarCSSClass){
 }// end navbar highlights
 
 // home link changes
-  // function linkChange(something){
-  // 	$(something).attr("target","_blank");
-  // 	alert(something);
-  // }// end home link changes
+   function linkChange(something){
+   	$(something).attr("target","_blank");
+   	// alert(something);
+   }// end home link changes
 
 // changes to resources page add acordion
 function addAccordion(fishfaqID){
@@ -65,44 +65,34 @@ function addAccordion(fishfaqID){
 }
 
 // resources functiion 
-function resourceImprovements(resourceID){
-	if(resourceID == '#fishfun'){
-		$('table tr:even').addClass('fishRowEven');
-		$('table tr:odd' ).addClass('fishRowOdd, ');
-		
-	}
-
-	if(resourceID == '#duck_stories'){
+function resourceImprovements(resourceID,jnnjk,kkmlkl){
+	
 		$('table tr:even').addClass('duckRowEven');
 		$('table tr:odd').addClass('duckRowOdd');
-	}
 
- 	$(' ' + resourceID + ' tr td').css('text-decoration', 'underline');
- 	$(' ' + resourceID + ' tr td').css('cursor', 'pointer');
 
-  	$(' ' + resourceID + ' tr:not(:first)').click(function(evt){
+ 	$( resourceID + ' tr td').css('text-decoration', 'underline');
+ 	$( resourceID + ' tr td').css('cursor', 'pointer');
+
+}// end resource improvements
+
+function resourceLink(resourceID){
+	$( resourceID + ' a').click(function(evt){
 		evt.preventDefault();
+	})
 
-
-
-		 var td1 = $(this).children(':first').text();
-		 alert(td1);
-		// var td2 = $(this).attr('href');
-		// alert(td2);	
-
-		// text then assign the a
-  		//$(td).attr('href').attr('target','_blank');
-
-
+  	$( resourceID + ' tr:not(:first)').click(function(){
+		var myLink = $( this ).find('a').attr('href');
+		window.open(myLink);
   	})// end click function
-}// end resourceImprovements 
+}// end resource Links 
 
 // gallery functions
 
 function displayFirstImage(thumbs){
-	var firstPath = $(' ' + thumbs + ' a:first').attr('href');
+	var firstPath = $( thumbs + ' a:first').attr('href');
 	
-	var firstImage = '<img src="'+firstPath+'" id="galleryBig">';
+	var firstImage = '<img src="'+ firstPath +'" id="galleryBig">';
 	
 	$(thumbs).after(firstImage);
 }
