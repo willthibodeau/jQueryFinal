@@ -6,5 +6,6 @@ $('document').ready(function(){
 	displayFirstImage('#galleryThumbs', 'galleryBig');
 	preloadImages('#galleryThumbs');
 	gallery('#galleryThumbs', 'galleryBig', '#galleryBig', '#caption', 'caption');
+	addDatePicker();
 	addAccordion('#faqs');linkChange('#content a ');
 });

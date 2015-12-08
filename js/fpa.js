@@ -6,5 +6,6 @@ $('document').ready(function(){
 	preloadImages('#survivors');
 	gallery('#survivors', 'galleryBig', '#galleryBig', '#caption', 'caption');
 	youAreHere('#navbar a', 'currentLink');
+	addDatePicker();
 	addAccordion('#fishfaq');
 	});

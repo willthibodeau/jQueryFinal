@@ -5,6 +5,8 @@ $('document').ready(function(){
 	autoFocus('#name');
 	autoClear();
 	toggleDependents('#spam');// pass the master control with the id of spam
+
+	$( "#datepicker" ).datepicker({ minDate: "-20Y", maxDate: "+1M +10D" });
 });// end document ready
 
 // this function allows the email to not be hard coded on the site and replaces it 

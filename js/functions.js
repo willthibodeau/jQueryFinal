@@ -111,6 +111,10 @@ function gallery(thumbs, galleryBig, galleryBigID, captionID, caption){
 	}); // end anon fcn
 }
 
+function addDatePicker(){
+	$( "#datepicker" ).datepicker({ minDate: "-20Y", maxDate: "0D" });
+}
+
 
 
 
