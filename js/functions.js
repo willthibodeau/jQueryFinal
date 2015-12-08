@@ -8,7 +8,7 @@ function getUpcomingMoves(someContent, animal){
  	var api = 'mv63eupbf36bpmmw4d8mpkn5';
 	var moviesURL = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json';
 	moviesURL += '?apikey=' + api;
-	moviesURL += animal;
+	moviesURL += '&q=' + animal;
 	moviesURL += '&page_limit=10'
 	moviesURL += '&_prettyprint=true&callback=?';
 	$.getJSON(moviesURL, displayResults);
@@ -20,7 +20,7 @@ function displayResults(serverResults){
  	var movies = serverResults.movies;
  	var i = 1;
  	$('#results').remove();
- 	var resultsContainer = '<ul id="results"> <p>' + total + ' total movies found:</p></ul>';
+ 	var resultsContainer = '<div id="results"> <p>' + total + ' total movies found:</p></div>';
  	$(addContent).after(resultsContainer);
  	$.each(movies, function(index, property){
  	var num = i++;
@@ -111,10 +111,60 @@ function gallery(thumbs, galleryBig, galleryBigID, captionID, caption){
 	}); // end anon fcn
 }
 
+// end gallery functions start contact form
+
 function addDatePicker(){
 	$( "#datepicker" ).datepicker({ minDate: "-20Y", maxDate: "0D" });
 }
 
+function autoFocus(field){
+	$(field).focus();
+}
 
+function autoClear(){
+// grab all elements that might contain default text
+var elements = $('input[type="text"], textarea');
 
+//compare their default text to their current text
+// on focus
+elements.focus(function(){
+		var defVal = $(this).prop('defaultValue');
+		var curVal = $(this).val();
+		if(defVal == curVal){
+			$(this).val('');
+		}
+	}); // end anonymous function
+	
+// when user leaves, check for blank value
+// If blank, set it back to default
+elements.blur(function(){
+		if($(this).val() == ''){
+			$(this).val($(this).prop('defaultValue'));
+		}
+	}); // end anonymous function
+}
+
+// add validation functions
+function addValidationEngineToForm(contentID){
+	$(contentID).validationEngine();
+alert(contentID);	
+}
+
+function addInputClassToName(){
+	$('#name').addClass('validate[required]').addClass('text-input');
+	alert(contentID);
+}// end addInputClass
+
+// function addClassToGender(){
+// 	$( 'input[name="gender"]' ).addClass('validate[required]').addClass('radio');
+// //alert('a');
+// }
+
+// function addClassToTotal(){
+// 	$('#total').addClass('validate[required,custom[number],min[0]]');
+// }
+
+// function addClassToPercent(){
+// 	$('#percent').addClass('validate[required,custom[integer],min[0]]');
+// }
 

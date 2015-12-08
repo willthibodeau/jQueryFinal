@@ -1,5 +1,5 @@
 $('document').ready(function(){
-	getUpcomingMoves('#movieContent', '&q=fish');
+	getUpcomingMoves('#movieContent', 'fish');
 	resourceImprovements('#fishfun', 'fishRowEven', 'fishRowOdd');
 	resourceLink('#fishfun');
 	displayFirstImage('#survivors', 'galleryBig');
@@ -7,5 +7,8 @@ $('document').ready(function(){
 	gallery('#survivors', 'galleryBig', '#galleryBig', '#caption', 'caption');
 	youAreHere('#navbar a', 'currentLink');
 	addDatePicker();
+	autoFocus('#fname');
+	autoClear();
+	addValidationEngineToForm('#mainContent')
 	addAccordion('#fishfaq');
 	});
