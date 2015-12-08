@@ -1,10 +1,10 @@
 $('document').ready(function(){
-	getUpcomingMoves('#mediaContent');
+	getUpcomingMoves('#mediaContent', '&q=duck');
 	youAreHere('#navbar a','pageHighlight');
-	resourceImprovements('#duck_stories');
+	resourceImprovements('#duck_stories', 'duckRowEven', 'duckRowOdd');
 	resourceLink('#duck_stories');
-	displayFirstImage('#galleryThumbs');
+	displayFirstImage('#galleryThumbs', 'galleryBig');
 	preloadImages('#galleryThumbs');
-	gallery('#galleryThumbs');
+	gallery('#galleryThumbs', 'galleryBig', '#galleryBig', '#caption', 'caption');
 	addAccordion('#faqs');linkChange('#content a ');
 });

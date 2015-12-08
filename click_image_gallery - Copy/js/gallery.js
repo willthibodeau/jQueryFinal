@@ -1,11 +1,11 @@
 $('document').ready(function(){
 // initialize document or que functions
 // display first image
-	displayFirstImage('#thumbs');
+	displayFirstImage('#thumbs', 'galleryBig');
 // pre-load remaining images
 	preloadImages('#thumbs');
 // load the gallery
-	gallery('#thumbs');
+	gallery('#thumbs', 'galleryBig', '#galleryBig', '#caption', 'caption');
 });
  
 // function library
@@ -22,10 +22,10 @@ $('document').ready(function(){
 	We should probably do that early - before we start working with a new image...
 	...so maybe do that between steps 1 and 2
 */
-function displayFirstImage(thumbs){
+function displayFirstImage(thumbs, galleryBig){
 	var firstPath = $(' ' + thumbs + ' a:first').attr('href');
 	
-	var firstImage = '<img src="'+firstPath+'" id="galleryBig">';
+	var firstImage = '<img src="'+firstPath+'" id="' + galleryBig + '">';
 	
 	$(thumbs).after(firstImage);
 }
@@ -39,21 +39,22 @@ function preloadImages(thumbs){
 	}
 }
 
-function gallery(thumbs){
+function gallery(thumbs, galleryBig, galleryBigID, captionID, caption){
 	$(' ' + thumbs + ' a').click(function(evt){
 		evt.preventDefault();
 		var oldImage = $(thumbs).next();
 		var imgPath = $(this).attr('href');
-		var newImage = $('<img src="' + imgPath + '" id="galleryBig">');
+		var newImage = $('<img src="' + imgPath +'" id="' + galleryBig + '">');
 		newImage.hide();
 		$(thumbs).after(newImage);
 		newImage.fadeIn();
 		oldImage.remove();
-		$('#caption').remove();
+		$( captionID ).remove();
 		var altText = $(this).attr('title');
-		var newTag = $('<div id="caption"> ' + altText + ' </div>');
+		var newTag = $('<div id="' + caption + '"> ' + altText + ' </div>');
 		newTag.fadeIn();
-		$('#galleryBig').after(newTag);
+		$( galleryBigID ).after(newTag);
+		
 	
 	}); // end anon fcn
 }

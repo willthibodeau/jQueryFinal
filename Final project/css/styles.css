@@ -122,10 +122,10 @@ label {
 /***************************************************************/
 /* table row colors */
 .duckRowEven {
-	background-color: #1cc;
+	background-color: #3cc;
 }
 .duckRowOdd {
-	background-color: #cc1;
+	background-color: #cc3;
 }
 .duckHighlighted {
 	background-color: #c11; 

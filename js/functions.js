@@ -4,13 +4,7 @@
 //line 79 cant get preventDefault() to work
 
 // start movie functions
-function getUpcomingMoves(someContent){
-	if(someContent == '#mediaContent'){
-		var animal = '&q=duck';
-	} else {
-		var animal = '&q=fish';
-	};
-
+function getUpcomingMoves(someContent, animal){
  	var api = 'mv63eupbf36bpmmw4d8mpkn5';
 	var moviesURL = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json';
 	moviesURL += '?apikey=' + api;
@@ -32,8 +26,9 @@ function displayResults(serverResults){
  	var num = i++;
  		var title = '<h1> # ' + num + ': ' + property.title + '</h1>';
  		var img = '<img src="' + property.posters.thumbnail + '" />';
- 		var synopsis = '<p>' + property.posters.original + '</p>';
- 		var movieDetails = '<li class="hideMe">' + title + img + synopsis + '</li>';
+ 		var synopsis = '<p>Rating: ' + property.mpaa_rating + '</p>';
+ 		var releaseDate = '<p>Release Date: ' + property.year + '</p>';
+ 		var movieDetails = '<p>' + title + img + synopsis + releaseDate + '</p><hr>';
  		$('#results').append(movieDetails);
  	})
 }//end displayResults
@@ -54,10 +49,9 @@ function youAreHere(navbarID, navbarCSSClass){
 }// end navbar highlights
 
 // home link changes
-   function linkChange(something){
+function linkChange(something){
    	$(something).attr("target","_blank");
-   	// alert(something);
-   }// end home link changes
+}// end home link changes
 
 // changes to resources page add acordion
 function addAccordion(fishfaqID){
@@ -65,15 +59,11 @@ function addAccordion(fishfaqID){
 }
 
 // resources functiion 
-function resourceImprovements(resourceID,jnnjk,kkmlkl){
-	
-		$('table tr:even').addClass('duckRowEven');
-		$('table tr:odd').addClass('duckRowOdd');
-
-
+function resourceImprovements(resourceID, rowEven, rowOdd){
+	$( resourceID + ' tr:even').addClass(rowEven);
+	$( resourceID + ' tr:odd').addClass(rowOdd);
  	$( resourceID + ' tr td').css('text-decoration', 'underline');
  	$( resourceID + ' tr td').css('cursor', 'pointer');
-
 }// end resource improvements
 
 function resourceLink(resourceID){
@@ -88,12 +78,9 @@ function resourceLink(resourceID){
 }// end resource Links 
 
 // gallery functions
-
-function displayFirstImage(thumbs){
-	var firstPath = $( thumbs + ' a:first').attr('href');
-	
-	var firstImage = '<img src="'+ firstPath +'" id="galleryBig">';
-	
+function displayFirstImage(thumbs, galleryBig){
+	var firstPath = $(' ' + thumbs + ' a:first').attr('href');
+	var firstImage = '<img src="'+firstPath+'" id="' + galleryBig + '">';
 	$(thumbs).after(firstImage);
 }
 
@@ -106,22 +93,21 @@ function preloadImages(thumbs){
 	}
 }
 
-function gallery(thumbs){
+function gallery(thumbs, galleryBig, galleryBigID, captionID, caption){
 	$(' ' + thumbs + ' a').click(function(evt){
 		evt.preventDefault();
 		var oldImage = $(thumbs).next();
 		var imgPath = $(this).attr('href');
-		var newImage = $('<img src="' + imgPath + '" id="galleryBig">');
+		var newImage = $('<img src="' + imgPath +'" id="' + galleryBig + '">');
 		newImage.hide();
 		$(thumbs).after(newImage);
 		newImage.fadeIn();
 		oldImage.remove();
-		$('#caption').remove();
+		$( captionID ).remove();
 		var altText = $(this).attr('title');
-		var newTag = $('<div id="caption"> ' + altText + ' </div>');
+		var newTag = $('<div id="' + caption + '"> ' + altText + ' </div>');
 		newTag.fadeIn();
-		$('#galleryBig').after(newTag);
-	
+		$( galleryBigID ).after(newTag);
 	}); // end anon fcn
 }
 
