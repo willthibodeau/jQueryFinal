@@ -6,6 +6,10 @@ $('document').ready(function(){
 	displayFirstImage('#galleryThumbs', 'galleryBig', 'caption');
 	preloadImages('#galleryThumbs');
 	gallery('#galleryThumbs', 'galleryBig', '#galleryBig', '#caption', 'caption');
-	addDatePicker();
+	
+	autoFocus('#fullname');
+	autoClear();
+addDatePicker('#sightingdate');
+	
 	addAccordion('#faqs');linkChange('#content a ');
 });

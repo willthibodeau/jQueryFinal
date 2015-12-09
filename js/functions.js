@@ -110,10 +110,33 @@ function gallery(thumbs, galleryBig, galleryBigID, captionID, caption){
 	}); // end anon fcn
 }
 
-// function addDatePicker(){
-// 	$( "#datepicker" ).datepicker({ minDate: "-20Y", maxDate: "0D" });
-// }
+ function addDatePicker(){
+ 	$( "#datepicker" ).datepicker({ minDate: "-20Y", maxDate: "0D" });
+ }
 
+// create a function to add focus to the page
+function autoFocus(field){
+	$(field).focus();
+}// end autoFocus
+
+// create a function to autoClear the form elements 
+function autoClear(){
+	var elements = $('input[type="text"], textarea');
+	elements.focus(function(){
+		var defValue = $(this).prop('defaultValue');
+		var currentValue = $(this).val();
+
+		if(defValue == currentValue){
+			$(this).val('');
+		}// end if
+	})// end anon function
+
+	elements.blur(function(){
+		if($(this).val() == ''){
+			$(this).val($(this).prop('defaultValue'));
+		}// end if
+	})//end anon function
+}// end autoClear
 
 
 
