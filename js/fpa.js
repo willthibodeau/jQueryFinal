@@ -1,14 +1,11 @@
 $('document').ready(function(){
-	getUpcomingMoves('#movieContent', 'fish');
+	getUpcomingMoves('#movieContent', 'fish', 'results', '#results');
 	resourceImprovements('#fishfun', 'fishRowEven', 'fishRowOdd');
 	resourceLink('#fishfun');
 	displayFirstImage('#survivors', 'galleryBig');
-	preloadImages('#survivors');
+	preloadImages('#survivors', 'caption');
 	gallery('#survivors', 'galleryBig', '#galleryBig', '#caption', 'caption');
 	youAreHere('#navbar a', 'currentLink');
 	addDatePicker();
-	autoFocus('#fname');
-	autoClear();
-	addValidationEngineToForm('#mainContent')
 	addAccordion('#fishfaq');
 	});
