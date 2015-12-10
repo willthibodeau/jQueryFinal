@@ -12,8 +12,15 @@
 
 <!-- links for datepicker -->
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+ <!-- add links for validation -->
+ <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css">
+  <link rel="stylesheet" href="css/template.css" type="text/css">
+  <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+  <script src="js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+
 
 </head>
 
@@ -35,7 +42,7 @@
   </div>
   <div id="mainContent">
     <h1>Contact</h1>
-     <form method="get" action="process_form.html">
+     <form method="get" action="process_form.html" id="mainContentForm">
       <p>
         <label for="fname">First Name:</label>
         <input name="fname" type="text" id="fname" value="First" class="required">

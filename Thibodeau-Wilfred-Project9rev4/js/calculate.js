@@ -13,11 +13,13 @@ $('document').ready(function(){
 	addClassToPercent();
 	addMarginToLabel();
 
-
+addDatePicker('#date');
 	
 });// end ready function
 
-
+function addDatePicker(cal){
+ 	$( cal ).datepicker({ minDate: "-20Y", maxDate: "0D" , default: "0D"});
+ }
 
 
 
@@ -49,6 +51,10 @@ function addClassToTotal(){
 
 function addClassToPercent(){
 	$('#percent').addClass('validate[required,custom[integer],min[0]]');
+}
+
+function addClassToDatePicker(){
+	$('#date').addClass('validate[required]',"option", "showAnim", 'slideDown');
 }
 
 function calculate(evt){
