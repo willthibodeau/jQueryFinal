@@ -146,7 +146,7 @@ function addValidationEngineToForm(formID){
 
 function addInputClassToName(fnameID){
 	$(fnameID).addClass('validate[required]').addClass('text-input');
-alert('a');	
+// alert('a');	
 }// end addInputClass
 
 
